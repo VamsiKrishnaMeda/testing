@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Create .env file
-      uses: VamsiKrishnaMeda/testing@v1
+      uses: VamsiKrishnaMeda/testing
       with:
         envkey_TEST: ${{ secrets.TESTING }}
         envkey_FOO: ${{ secrets.FOO }}
