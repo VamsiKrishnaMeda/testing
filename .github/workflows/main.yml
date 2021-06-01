@@ -1,0 +1,23 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Create .env file
+
+# Controls when the action will run. 
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [ python_upgrade ]
+  pull_request:
+    branches: [ python_upgrade ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+
+  create_env_file:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Create .env file
+      uses: procter-gamble/fhc-rco-etl-scalable@v1
+      with:
+        envkey_TEST: ${{ secrets.TESTING }}
+        envkey_FOO: ${{ secrets.FOO }}
