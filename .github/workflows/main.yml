@@ -12,12 +12,14 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-
-  create_env_file:
-    runs-on: ubuntu-latest
+  deploy:
+    # The type of runner that the job will run on
+    runs-on: self-hosted
+    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v1
-      name: Create .env file
+    - name: 'Deploy stage'
       with:
-        envkey_FOO: ${{ secrets.FOO }}
-        file_name: .env
+        name: test.json
+        json: ${{ secrets.FOO }}
