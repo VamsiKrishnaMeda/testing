@@ -20,6 +20,5 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v1
     - name: 'Deploy stage'
-      with:
-        name: test.json
-        json: ${{ secrets.FOO }}
+      run: |
+        echo '${{secrets.FOO}}' > "\App\env.json"
