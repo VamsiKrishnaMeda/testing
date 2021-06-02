@@ -21,3 +21,4 @@ jobs:
       with:
         envkey_TEST: ${{ secrets.TESTING }}
         envkey_FOO: ${{ secrets.FOO }}
+        file_name: .env
