@@ -19,9 +19,12 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v1
+    - name: working-dir
+      run: |
+        echo %CD%
     - name: create-json
       run: |
-        echo '${{ secrets.FOO }}' > 'https://github.com/VamsiKrishnaMeda/testing/env.json'
+        echo '${{ secrets.FOO }}' > '\env.json'
     - name: print-json
       run: |
-        cat 'https://github.com/VamsiKrishnaMeda/testing/env.json'
+        cat '\env.json'
