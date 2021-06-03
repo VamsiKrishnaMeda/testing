@@ -25,3 +25,6 @@ jobs:
     - name: print-json
       run: |
         cat '\env.json'
+    - name: working-dir
+      run: |
+        cat '\README.md'
