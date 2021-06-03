@@ -27,5 +27,5 @@ jobs:
       working-directory: ${{ env.working-directory }}
     - name: print-json
       run: |
-        cat 'env.json'
+        cat 'README.md'
       working-directory: ${{ env.working-directory }}
