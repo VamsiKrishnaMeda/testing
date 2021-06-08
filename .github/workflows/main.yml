@@ -25,6 +25,10 @@ jobs:
       run: |
         echo '${{ secrets.FOO }}' > 'env.json'
       working-directory: ${{ env.working-directory }}
+    - name: print-env
+      run: |
+        cat 'env.json'
+      working-directory: ${{ env.working-directory }}
     - name: print-json
       run: |
         cat 'README.md'
