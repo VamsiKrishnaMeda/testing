@@ -21,4 +21,3 @@ jobs:
         with:
           name: "credentials.json"
           json: ${{ secrets.CREDENTIALS_JSON }}
-          dir: 'src/'
