@@ -15,8 +15,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: create-json
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
+      - name: create-json        
         with:
           name: "env.json"
           foo: ${{ secrets.FOO }}
