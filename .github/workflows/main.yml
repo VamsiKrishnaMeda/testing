@@ -19,5 +19,5 @@ jobs:
         id: create-json
         uses: actions/checkout@v1
         with:
-          name: "credentials.json"
-          json: ${{ secrets.CREDENTIALS_JSON }}
+          foo: ${{ secrets.FOO }}
+          downloaded_filename: 'env.json'
