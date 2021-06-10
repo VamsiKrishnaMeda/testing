@@ -12,12 +12,13 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  deploy:
+  create_env_file:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: create-json        
+      - name: create-json
+        id: create-json
+        uses: actions/checkout@v1
         with:
-          name: "env.json"
-          foo: ${{ secrets.FOO }}
-          dir: "/"
+          name: "credentials.json"
+          json: ${{ secrets.CREDENTIALS_JSON }}
+          dir: 'src/'
