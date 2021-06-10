@@ -3,12 +3,12 @@
 name: Create .env file
 
 # Controls when the action will run. 
-on: [ push, pull_request ]
   # Triggers the workflow on push or pull request events but only for the main branch
-#   push:
-#     branches: [ main ]
-#   pull_request:
-#     branches: [ main ]
+on:   
+   push:
+    branches: [ main ]
+   pull_request:
+     branches: [ main ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -21,10 +21,15 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v1
+    - name: read-json
+      env:
+        foo: ${{ secrets.FOO }}
     - name: create-json
-      run: |
-        echo '${{ secrets.FOO }}' > 'env.json'
-      working-directory: ${{ env.working-directory }}
+      uses: actions/checkout@v2
+      with:
+        name: "env.json"
+        foo: ${{ secrets.FOO }}
+        dir: "/"
     - name: print-env
       run: |
         cat 'env.json'
